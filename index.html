@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Staff Management</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="container" style="margin-bottom: 30px;">
+		<div class="row centered-form">
+			<div class="col-xs-12 col-sm-6 center wow fadeInUp">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title text-center">Staff Management</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form">
+							<div class="container">
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="ho" id="ho" class="form-control input-sm floatlabel" placeholder="Last Name"> 
+											<span class="sp-thongbao"></span>
+										</div>
+									</div>
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+											<input type="text" name="ten" id="ten" class="form-control input-sm" placeholder="First Name">
+											<span class="sp-thongbao"></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<input type="text" name="msnv" id="msnv" class="form-control input-sm" placeholder="ID">
+									<span class="sp-thongbao"></span>
+								</div>
+								<div class="row">
+									<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group" >
+											<div style="display: flex;">
+												<input type="text" name="ngaylam" id="datepicker" class="form-control input-sm" placeholder="Date of Work">
+											</div>
+											<span class="sp-thongbao"></span>
+										</div>
+										
+									</div>
+								</div>
+								<div class="form-group">
+									<select class="form-control" id="chucvu">
+										<option>Position</option>
+										<option>Manager</option>
+										<option>Leader</option>
+										<option>Staff</option>
+									</select>
+									<span class="sp-thongbao"></span>
+								</div>
+								
+								<input type="reset" value="Add Employee" class="btn btn-info btn-block" id="btnThemNV">
+								<input type="button" value="Add" class="btn btn-info btn-block" id="btnEdit">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="hienthi" class="container">
+		<div class="d-flex">
+			<input type="text" class="form-control" id="txtSearch">
+			<button class="btn btn-success" id="btnSearch">Search</button>
+		</div>
+		<table class="table text-white">
+			<thead>
+				<tr>
+					<th>Last Name</th>
+					<th>First Name</th>
+					<th>ID</th>
+					<th>Position</th>
+					<th>Salary</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody id="tbody">
+
+			</tbody>
+		</table>
+	</div>
+
+	
+
+
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="js/popper.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+	<script src="js/sweetalert2.js"></script>
+	<script type="text/javascript" src="js/nhanvien.js"></script>
+	<script type="text/javascript" src="js/DSNhanVien.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+	<script src="WOW-master/dist/wow.min.js"></script>
+	<script type="text/javascript">
+		new WOW().init();
+	</script>
+
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script>
+		$( function() {
+			$( "#datepicker" ).datepicker({
+				showOn: "button",
+				buttonImage: "images/calendar.png",
+				buttonImageOnly: true,
+				buttonText: "Select date",
+				dateFormat: "mm/dd/yy"
+
+			});
+		} );
+	</script>
+	<script type="text/javascript">
+		$( document ).ready(function() {
+			var d = new Date();
+
+			var month = d.getMonth()+1;
+			var day = d.getDate();
+
+			var output = ((''+month).length<2 ? '0' : '') + month  + '/' +
+			((''+day).length<2 ? '0' : '') + day + '/' +
+			d.getFullYear();
+			$('#datepicker').val(output);   
+		});
+	</script>
+
+</body>
+</html>
